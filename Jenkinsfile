@@ -34,7 +34,7 @@ pipeline {
                         sh """
                         ssh -o StrictHostKeyChecking=no ubuntu@${EC2_IP} "
                             cd /home/ubuntu &&
-                            docker compose build &&
+                            docker-compose build &&
                             docker tag ${PROJECT_NAME}_backend ${DOCKER_IMAGE_TAG}-backend &&
                             docker tag ${PROJECT_NAME}_frontend ${DOCKER_IMAGE_TAG}-frontend
                         "
@@ -70,7 +70,7 @@ pipeline {
                     sshagent(['ec2']) {
                         sh """
                         scp -o StrictHostKeyChecking=no ${DockerComposeFile} ubuntu@${EC2_IP}:/home/ubuntu
-                        ssh -o StrictHostKeyChecking=no ubuntu@${EC2_IP} "docker compose -f /home/ubuntu/${DockerComposeFile} up -d"
+                        ssh -o StrictHostKeyChecking=no ubuntu@${EC2_IP} "docker-compose -f /home/ubuntu/${DockerComposeFile} up -d"
                         """
                     }
                 }
