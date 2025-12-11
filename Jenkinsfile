@@ -11,7 +11,7 @@ pipeline{
             steps{
                 script{
                     echo "Building Docker Image...."
-                    sh "docker compose build -t ${Imageregistry}/${JOB_NAME}:${BUILD_NUMBER} ."
+                    sh "docker compose build ${Imageregistry}/${JOB_NAME}:${BUILD_NUMBER} ."
                 }
             }
         }
