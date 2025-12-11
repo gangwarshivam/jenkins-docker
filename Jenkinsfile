@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         Imageregistry = 'docker1beginner1shivam'
-        EC2_IP = '3.111.51.206'
+        EC2_IP = '3.7.71.179'
         DockerComposeFile = 'docker-compose.yaml'
         PROJECT_NAME = 'multi-service-app'
         DOCKER_IMAGE_TAG = "${Imageregistry}/${PROJECT_NAME}:${BUILD_NUMBER}"
